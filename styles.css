@@ -1,0 +1,701 @@
+/* Base styles */
+:root {
+    --primary-color: #8B4513;
+    --secondary-color: #DEB887;
+    --text-color: #333;
+    --light-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* Language switcher */
+.language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 1001;
+}
+
+.language-switcher a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.language-switcher a:hover, 
+.language-switcher a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Header styles */
+header {
+    background-color: var(--light-bg);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 auto;
+    color: var(--primary-color);
+    font-size: 3rem;
+    padding: 0.5rem 1rem;
+    max-width: 800px;
+}
+
+nav {
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 2rem 0;
+}
+
+.hero h2 {
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 2.4rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.cta-button:hover {
+    background-color: #723a0f;
+}
+
+/* About section */
+.about {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+}
+
+.about p {
+    font-size: 1.2rem;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.features li {
+    margin-bottom: 1rem;
+}
+
+.features i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* Services section */
+.services {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.services h2 {
+    font-size: 2.5rem;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+}
+
+.service-card p {
+    font-size: 1.2rem;
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Gallery styles */
+.gallery {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.gallery-item h3 {
+    font-size: 1.8rem;
+    margin: 1rem;
+}
+
+.gallery-item p {
+    padding: 1rem;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Contact section */
+.contact {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.contact-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-item p {
+    font-size: 1.2rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+        padding: 0 2rem;
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        width: 80%;
+        text-align: center;
+    }
+    
+    .language-switcher {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+/* Service features */
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.service-features li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.service-features i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* Contact page */
+.contact-page {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.contact-page h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-form h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #723a0f;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* Projects section */
+.projects {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.project-content h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.project-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    color: #222;
+}
+
+.project-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.project-highlights li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.project-highlights i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.project-link:hover {
+    background-color: #723a0f;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card img {
+        height: 200px;
+    }
+}
+
+/* Individual project page styles */
+.project-details {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-intro h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-specs {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.project-specs h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+}
+
+.specs-list li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.specs-list li strong {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.project-gallery {
+    margin-bottom: 3rem;
+}
+
+.project-gallery h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.project-process {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+}
+
+.project-process h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.process-list {
+    padding-left: 1.5rem;
+}
+
+.process-list li {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+.project-cta {
+    text-align: center;
+    background-color: white;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-cta h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.project-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .project-details {
+        padding: 2rem 1rem;
+    }
+    
+    .project-intro h2 {
+        font-size: 2rem;
+    }
+    
+    .project-specs,
+    .project-process,
+    .project-cta {
+        padding: 1.5rem;
+    }
+}
