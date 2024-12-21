@@ -29,15 +29,119 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: white;
+    background-color: var(--light-bg);
     padding: 1rem 0;
     box-shadow: var(--box-shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    text-align: center;
+    position: static;
     width: 100%;
-    display: none; /* Hidden by default */
+    text-align: center;
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+header.visible {
+    transform: translateY(0);
+}
+
+/* Add padding to main content to account for fixed header */
+main {
+    padding: 2rem;
+    min-height: calc(100vh - 320px);
+}
+
+/* Common section styles - applying projects page styling to all sections */
+section {
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1200px;
+    width: 90%;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+footer.hidden {
+    transform: translateY(100%);
+}
+
+footer.visible {
+    transform: translateY(0);
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+
+    header.hidden {
+        transform: translateY(-100%);
+    }
+
+    header.visible {
+        transform: translateY(0);
+    }
+
+    footer.hidden {
+        transform: translateY(100%);
+    }
+
+    footer.visible {
+        transform: translateY(0);
+    }
+
+    main {
+        padding-top: 100px;
+        padding-bottom: 150px;
+    }
+
+    section {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+
+    .footer-content {
+        padding: 1rem;
+    }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 480px) {
+    main {
+        padding-top: 80px;
+        padding-bottom: 120px;
+    }
+
+    section {
+        padding: 1rem;
+    }
 }
 
 /* Show header only on home page */
@@ -105,23 +209,6 @@ nav a:hover, nav a.active {
 .language-switcher a.active {
     background-color: var(--primary-color);
     color: white;
-}
-
-/* Common section styles */
-.hero,
-.about,
-.services,
-.projects,
-.contact,
-.gallery {
-    padding: 4rem 2rem;
-    background-color: white;
-    margin: 2rem auto;
-    max-width: 1200px;
-    width: 100%;
-    text-align: center;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
 }
 
 /* Section descriptions */
@@ -213,290 +300,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-/* Footer styles */
-footer {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 2rem 0;
-    margin-top: 4rem;
-    display: none; /* Hidden by default */
-    width: 100%;
-}
-
-/* Show footer only on home page */
-body.home footer {
-    display: block;
-}
-
-.footer-content {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-        padding: 0 2rem;
-    }
-    
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav a {
-        width: 80%;
-        text-align: center;
-    }
-    
-    .language-switcher {
-        top: 0.5rem;
-        right: 0.5rem;
-    }
-    
-    .project-grid,
-    .service-grid,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-/* Hero section */
-.hero {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: var(--light-bg);
-    margin: 2rem auto;
-    max-width: 1200px;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.hero h2 {
-    font-size: 3.5rem;
-    color: var(--primary-color);
-    margin: 0 auto 2rem;
-    max-width: 900px;
-    width: 100%;
-    line-height: 1.2;
-    padding: 2rem;
-}
-
-.hero .tagline {
-    font-size: 2rem;
-    margin: 0 auto 3rem;
-    max-width: 900px;
-    width: 100%;
-    line-height: 1.4;
-    padding: 1rem;
-}
-
-.hero .cta-button {
-    display: inline-block;
-    padding: 1.5rem 3rem;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    transition: all var(--transition-speed);
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-top: 2rem;
-}
-
-.hero .cta-button:hover {
-    background-color: #723a0f;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: 2rem 1rem;
-        margin: 1rem auto;
-        width: 95%;
-    }
-
-    .hero h2 {
-        font-size: 2.5rem;
-        padding: 1.5rem;
-    }
-
-    .hero .tagline {
-        font-size: 1.6rem;
-        padding: 1rem;
-    }
-
-    .hero .cta-button {
-        padding: 1.2rem 2.4rem;
-        font-size: 1.2rem;
-    }
-}
-
-/* About section */
-.about {
-    padding: 4rem 2rem;
-    background-color: var(--light-bg);
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 1200px;
-    width: 90%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-.about-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-}
-
-.about p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.features {
-    list-style: none;
-    padding: 0;
-    font-size: 1.2rem;
-}
-
-.features li {
-    margin-bottom: 1rem;
-}
-
-.features i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-/* Services section */
-.services {
-    padding: 4rem 2rem;
-    background-color: var(--light-bg);
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 0 auto 2rem;
-    max-width: 1200px;
-    width: 100%;
-    display: block;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-card {
-    text-align: center;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-card h3 {
-    font-size: 1.8rem;
-}
-
-.service-card p {
-    font-size: 1.2rem;
-}
-
-.service-card i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-/* Gallery styles */
-.gallery {
-    padding: 4rem 2rem;
-    background-color: var(--light-bg);
-    text-align: center;
-}
-
-.gallery h2 {
-    font-size: 2.5rem;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.gallery-item {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-}
-
-.gallery-item h3 {
-    font-size: 1.8rem;
-    margin: 1rem;
-}
-
-.gallery-item p {
-    padding: 1rem;
-    margin: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
 }
 
 /* Contact section */
