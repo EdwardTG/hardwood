@@ -82,6 +82,7 @@ footer.visible {
 
 /* Mobile optimizations */
 @media screen and (max-width: 768px) {
+    /* Header mobile styles */
     header {
         position: fixed;
         top: 0;
@@ -89,15 +90,8 @@ footer.visible {
         right: 0;
         z-index: 1000;
         transition: transform 0.3s ease;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        transition: transform 0.3s ease;
+        padding: 0.5rem 0;
+        background-color: var(--light-bg);
     }
 
     header.hidden {
@@ -106,6 +100,18 @@ footer.visible {
 
     header.visible {
         transform: translateY(0);
+    }
+
+    /* Footer mobile styles */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        padding: 1rem 0;
+        background-color: var(--primary-color);
     }
 
     footer.hidden {
