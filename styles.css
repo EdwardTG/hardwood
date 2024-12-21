@@ -8,6 +8,8 @@
     --border-radius: 8px;
     --hover-transform: translateY(-5px);
     --transition-speed: 0.3s ease;
+    --header-height: 60px;
+    --footer-height: 80px;
 }
 
 body {
@@ -35,6 +37,7 @@ header {
     position: static;
     width: 100%;
     text-align: center;
+    height: auto;
 }
 
 header.hidden {
@@ -45,10 +48,13 @@ header.visible {
     transform: translateY(0);
 }
 
-/* Add padding to main content to account for fixed header */
+/* Main content */
 main {
     padding: 2rem;
-    min-height: calc(100vh - 320px);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Common section styles - applying projects page styling to all sections */
@@ -70,6 +76,7 @@ footer {
     position: static;
     width: 100%;
     margin-top: 2rem;
+    height: auto;
 }
 
 footer.hidden {
@@ -91,6 +98,7 @@ footer.visible {
         z-index: 1000;
         transition: transform 0.3s ease;
         padding: 0.5rem 0;
+        height: var(--header-height);
         background-color: var(--light-bg);
     }
 
@@ -111,6 +119,7 @@ footer.visible {
         z-index: 1000;
         transition: transform 0.3s ease;
         padding: 1rem 0;
+        height: var(--footer-height);
         background-color: var(--primary-color);
     }
 
@@ -122,31 +131,56 @@ footer.visible {
         transform: translateY(0);
     }
 
+    /* Main content mobile adjustments */
     main {
-        padding-top: 100px;
-        padding-bottom: 150px;
+        padding-top: calc(var(--header-height) + 20px);
+        padding-bottom: calc(var(--footer-height) + 20px);
+        min-height: 100vh;
+        width: 95%;
     }
 
+    /* Section adjustments for mobile */
     section {
-        width: 95%;
-        margin: 1rem auto;
+        width: 100%;
+        margin: 1rem 0;
         padding: 1.5rem;
     }
 
+    /* Footer content mobile adjustments */
     .footer-content {
-        padding: 1rem;
+        padding: 0.5rem;
+    }
+
+    /* Navigation mobile adjustments */
+    nav {
+        padding: 0.25rem;
+    }
+
+    nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
     }
 }
 
 /* Additional mobile optimizations */
 @media screen and (max-width: 480px) {
+    :root {
+        --header-height: 50px;
+        --footer-height: 70px;
+    }
+
     main {
-        padding-top: 80px;
-        padding-bottom: 120px;
+        padding-top: calc(var(--header-height) + 15px);
+        padding-bottom: calc(var(--footer-height) + 15px);
     }
 
     section {
         padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .footer-content {
+        padding: 0.25rem;
     }
 }
 
