@@ -20,8 +20,11 @@ body {
     background-attachment: fixed;
     color: var(--text-color);
     line-height: 1.6;
-    font-size: 18px;
+    font-size: 16px;
     min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header and Navigation */
@@ -1190,4 +1193,164 @@ h2 {
 img {
     display: block;
     margin: 0 auto;
+}
+
+/* Mobile-first container styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero section mobile optimization */
+.hero {
+    width: 90%;
+    padding: 2rem 1rem;
+    margin: 1rem auto;
+    min-height: auto;
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto 1rem;
+}
+
+.hero .tagline {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto 1.5rem;
+}
+
+/* Common section styles for mobile */
+section {
+    width: 90%;
+    padding: 2rem 1rem;
+    margin: 1rem auto;
+}
+
+/* Responsive media queries */
+@media screen and (max-width: 768px) {
+    /* General text sizing */
+    h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+    h3 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
+    p { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+    /* Navigation adjustments */
+    nav {
+        padding: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        width: auto;
+        font-size: 1rem;
+    }
+
+    /* Language switcher positioning */
+    .language-switcher {
+        position: fixed;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    /* Grid adjustments */
+    .service-grid,
+    .project-grid,
+    .gallery-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    /* Card and content spacing */
+    .service-card,
+    .project-card,
+    .gallery-item,
+    .info-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Form elements */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.5rem;
+        font-size: 16px;
+    }
+
+    /* Button sizing */
+    .cta-button,
+    .project-link,
+    .submit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        width: auto;
+        max-width: 100%;
+    }
+
+    /* Image sizing */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Additional mobile optimizations */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 0 0.5rem;
+    }
+
+    .hero,
+    section {
+        width: 95%;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .info-item {
+        min-height: 150px;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+}
+
+/* Fix for iOS Safari viewport height issue */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Ensure touch targets are large enough */
+button,
+input,
+select,
+textarea,
+a {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Prevent text overflow */
+* {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
