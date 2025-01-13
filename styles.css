@@ -3,8 +3,7 @@
     --primary-color: #8B4513;
     --secondary-color: #DEB887;
     --text-color: #333;
-    --light-bg: rgba(255, 255, 255, 0.9);
-    --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     --border-radius: 8px;
     --hover-transform: translateY(-5px);
     --transition-speed: 0.3s ease;
@@ -14,10 +13,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('images/background.jpeg');
+    background: url('images/background.png') center center fixed;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     color: var(--text-color);
     line-height: 1.6;
     font-size: 18px;
@@ -32,8 +29,6 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    text-align: center;
-    width: 100%;
 }
 
 header h1 {
@@ -104,13 +99,10 @@ nav a:hover, nav a.active {
 .contact,
 .gallery {
     padding: 4rem 2rem;
-    background-color: white;
     margin: 2rem auto;
     max-width: 1200px;
     width: 100%;
     text-align: center;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
 }
 
 /* Section descriptions */
@@ -136,148 +128,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.2rem;
     margin-bottom: 1.5rem;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-}
-
-/* Service features alignment */
-.service-features li,
-.project-highlights li,
-.features li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.service-features i,
-.project-highlights i,
-.features i {
-    flex-shrink: 0;
-}
-
-/* Footer alignment */
-.footer-content {
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.footer-section ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 0;
-}
-
-/* Common card styles */
-.service-card,
-.project-card,
-.gallery-item,
-.contact-info,
-.info-item {
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: transform var(--transition-speed);
-}
-
-.service-card:hover,
-.project-card:hover,
-.gallery-item:hover {
-    transform: var(--hover-transform);
-}
-
-/* Common grid layouts */
-.service-grid,
-.project-grid,
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Footer styles */
-footer {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 2rem 0;
-    margin-top: 4rem;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-        padding: 0 2rem;
-    }
-    
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav a {
-        width: 80%;
-        text-align: center;
-    }
-    
-    .language-switcher {
-        top: 0.5rem;
-        right: 0.5rem;
-    }
-    
-    .project-grid,
-    .service-grid,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-/* Hero section */
-.hero {
-    text-align: center;
-    padding: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    margin: 0 auto;
-    max-width: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 100px);
-    position: relative;
-}
-
-.hero h2 {
-    font-size: 3.5rem;
-    color: var(--primary-color);
-    margin: 0 auto 2rem;
-    max-width: 900px;
-    width: 90%;
-    background-color: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -289,7 +139,7 @@ footer {
     margin: 0 auto 3rem;
     max-width: 900px;
     width: 90%;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -364,15 +214,20 @@ footer {
     list-style: none;
     padding: 0;
     font-size: 1.2rem;
+    margin: 0;
 }
 
 .features li {
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .features i {
     color: var(--primary-color);
-    margin-right: 0.5rem;
+    flex-shrink: 0;
 }
 
 /* Services section */
@@ -402,9 +257,9 @@ footer {
 .service-card {
     text-align: center;
     padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -445,10 +300,10 @@ footer {
 }
 
 .gallery-item {
-    background-color: white;
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--box-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -477,7 +332,6 @@ footer {
 /* Contact section */
 .contact {
     padding: 4rem 2rem;
-    background-color: var(--light-bg);
 }
 
 .contact h2 {
@@ -487,26 +341,26 @@ footer {
     max-width: 1200px;
     width: 100%;
     display: block;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .contact-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .contact-info {
-    background: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     margin: 0 auto;
     max-width: 800px;
 }
@@ -517,8 +371,9 @@ footer {
     gap: 1.5rem;
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: white;
-    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     border: 1px solid rgba(139, 69, 19, 0.2);
 }
 
@@ -540,7 +395,6 @@ footer {
 }
 
 #contact {
-    background-color: rgba(245, 245, 245, 0.9);
     padding: 3rem 0;
     min-height: 80vh;
     display: flex;
@@ -554,10 +408,10 @@ footer {
     color: var(--primary-color);
     font-size: 2.5rem;
     font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 1rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -577,6 +431,7 @@ footer {
     background-color: var(--primary-color);
     color: white;
     padding: 2rem 0;
+    margin-top: 4rem;
 }
 
 .footer-content {
@@ -638,6 +493,17 @@ footer {
         top: 0.5rem;
         right: 0.5rem;
     }
+    
+    .project-grid,
+    .service-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* Service features */
@@ -661,7 +527,6 @@ footer {
 /* Contact page */
 .contact-page {
     padding: 4rem 2rem;
-    background-color: var(--light-bg);
 }
 
 .contact-page h2 {
@@ -678,10 +543,10 @@ footer {
 }
 
 .contact-form {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .contact-form h3 {
@@ -706,9 +571,10 @@ footer {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    border-radius: var(--border-radius);
     font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .form-group textarea {
@@ -770,10 +636,10 @@ footer {
 }
 
 .project-card {
-    background-color: white;
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--box-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -789,7 +655,7 @@ footer {
 
 .project-content {
     padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: white;
     text-align: center;
 }
 
@@ -812,7 +678,7 @@ footer {
     list-style: none;
     padding: 0;
     margin-bottom: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: white;
     padding: 1rem;
     border-radius: 4px;
 }
@@ -880,10 +746,10 @@ footer {
 }
 
 .project-specs {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     margin-bottom: 3rem;
 }
 
@@ -921,10 +787,10 @@ footer {
 }
 
 .project-process {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     margin-bottom: 3rem;
 }
 
@@ -946,10 +812,10 @@ footer {
 
 .project-cta {
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 3rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .project-cta h3 {
@@ -1049,10 +915,10 @@ h2 {
     color: var(--primary-color);
     font-size: 2.5rem;
     font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 1rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -1161,4 +1027,55 @@ h2 {
 img {
     display: block;
     margin: 0 auto;
+}
+
+/* Update about section text styling */
+.about-text {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.features li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.features i {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* Update contact intro text */
+.contact-intro {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin: 0 auto 2rem;
+    max-width: 800px;
+}
+
+.contact-intro p {
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.6;
 }
