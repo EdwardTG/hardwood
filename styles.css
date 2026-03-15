@@ -113,7 +113,7 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; }
 #header {
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: var(--header-h);
+    padding-top: env(safe-area-inset-top, 0px);
     z-index: 200;
     transition: background var(--ease), box-shadow var(--ease), transform 0.3s ease;
 }
@@ -131,7 +131,7 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; }
 }
 
 .header-inner {
-    height: 100%;
+    height: var(--header-h);
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -274,7 +274,7 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; }
 .hero-content {
     position: relative;
     z-index: 1;
-    padding-top: calc(var(--header-h) + 2rem);
+    padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 2rem);
     padding-bottom: 5rem;
 }
 
@@ -504,11 +504,28 @@ h3 { font-size: 1rem; font-weight: 600; line-height: 1.3; }
 
 /* ── Mobile nav (hamburger) ────────────────────────── */
 @media (max-width: 768px) {
-    .hamburger { display: flex; }
+    /* Always show a solid header on mobile so it's never invisible */
+    #header.is-top {
+        background: rgba(12, 12, 12, 0.92);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hamburger {
+        display: flex;
+        background: rgba(255,255,255,0.08);
+        border-radius: var(--radius-s);
+    }
+
+    /* Bigger tap target for language buttons */
+    .lang-btn {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.85rem;
+    }
 
     .nav {
         position: fixed;
-        top: var(--header-h);
+        top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
         left: 0;
         right: 0;
         background: rgba(12, 12, 12, 0.98);

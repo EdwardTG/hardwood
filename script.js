@@ -6,14 +6,17 @@
     if (!header) return;
 
     // ── Header state: transparent → solid on scroll ──────────────────────
+    var lastScrollY = 0;
+
     function updateHeader() {
-        var scrolled = window.scrollY > 60;
+        var scrollY  = window.scrollY;
+        var scrolled = scrollY > 60;
         header.classList.toggle('is-top',      !scrolled);
         header.classList.toggle('is-scrolled',  scrolled);
 
-        // Mobile only: hide header when scrolling away from top
+        // Mobile only: hide when scrolling DOWN, show when scrolling UP
         if (window.innerWidth <= 768) {
-            if (window.scrollY > 80) {
+            if (scrollY > lastScrollY && scrollY > 120) {
                 header.classList.add('is-hidden');
                 closeNav();
             } else {
@@ -22,6 +25,8 @@
         } else {
             header.classList.remove('is-hidden');
         }
+
+        lastScrollY = scrollY;
     }
 
     window.addEventListener('scroll',  updateHeader, { passive: true });
